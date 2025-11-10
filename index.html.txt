@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MARITIME SAFETY SERVICES UNIT NCR-CL</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Splash Screen -->
+<div id="splash" class="center">
+  <div class="splash-card">
+    <h1>MARITIME SAFETY SERVICES UNIT NCR-CL</h1>
+    <p class="lead">Saving Lives</p>
+    <div class="splash-actions">
+      <button id="enterBtn" class="btn primary">Enter</button>
+    </div>
+  </div>
+</div>
+
+<!-- Main App -->
+<div id="app" style="display:none;">
+  <header class="app-header">
+    <h2>MSSU NCR-CL Portal</h2>
+    <p>One Portal – Admin | Logistics | Operation | Functional Branches | Others</p>
+  </header>
+
+  <nav class="main-nav">
+    <button class="nav-btn" data-page="admin">Admin</button>
+    <button class="nav-btn" data-page="logistics">Logistics</button>
+    <button class="nav-btn" data-page="operation">Operation</button>
+    <button class="nav-btn" data-page="functional">Functional Branches</button>
+    <button class="nav-btn" data-page="others">Others</button>
+  </nav>
+
+  <main id="mainContent">
+    <iframe id="pageFrame" src="admin.html" style="width:100%;height:75vh;border:none;"></iframe>
+  </main>
+
+  <footer class="app-footer">
+    <p>Offline-capable | Data syncs to Google Drive/Sheets when online</p>
+  </footer>
+</div>
+
+<!-- Inline Style (Optional, you can move to style.css) -->
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6ff;
+  text-align: center;
+}
+.center {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #004aad, #0077ff);
+  color: white;
+}
+.splash-card {
+  background: rgba(255,255,255,0.1);
+  padding: 40px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+}
+.primary {
+  background: white;
+  color: #004aad;
+}
+.app-header {
+  background: #004aad;
+  color: white;
+  padding: 10px;
+}
+.main-nav {
+  margin: 10px 0;
+}
+.main-nav .nav-btn {
+  margin: 3px;
+  padding: 8px 15px;
+  border: none;
+  background: #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.main-nav .nav-btn.active {
+  background: #004aad;
+  color: white;
+}
+footer {
+  background: #004aad;
+  color: white;
+  padding: 5px;
+}
+</style>
+
+<!-- Inline Script -->
+<script>
+document.getElementById('enterBtn').onclick = () => {
+  document.getElementById('splash').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+};
+
+// Navigation: Load correct page in iframe
+const navButtons = document.querySelectorAll('.nav-btn');
+navButtons.forEach(btn => {
+  btn.onclick = () => {
+    navButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const page = btn.getAttribute('data-page');
+    document.getElementById('pageFrame').src = page + '.html';
+  };
+});
+</script>
+
+</body>
+</html>
