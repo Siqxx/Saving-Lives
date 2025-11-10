@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operations | MSSU NCR-CL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="page">
+    <h2>Operations Section</h2>
+    <p>Manage communications, missions, and activities.</p>
+
+    <h3>Communications</h3>
+    <button>Incoming</button>
+    <button>Outgoing</button>
+
+    <h3>Missions</h3>
+    <label>Upload Mission Order:</label>
+    <input type="file" accept="image/*,.pdf,.doc,.docx">
+
+    <h3>Monthly Activities</h3>
+    <p>Editable sheet (to be linked to Google Sheet)</p>
+    <textarea style="width:100%;height:150px;"></textarea>
+
+    <button class="btn primary">Save</button>
+  </section>
+</body>
+</html>
